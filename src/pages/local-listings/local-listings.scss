@@ -1,0 +1,15 @@
+page-local-listings {
+  .bottom-bar {
+    background-color: map-get($map: $colors, $key: semi-light);
+
+    .border-right {
+      border-right: 1px solid map-get($map: $colors, $key: light);
+    }
+  }
+
+  div.card-details  {
+    margin: 0 0 2px;
+    font-size: 1.4rem;
+    color: #666;
+  }
+}

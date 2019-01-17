@@ -1,0 +1,59 @@
+<ion-card *ngFor="let local of listings">
+  <ion-row (click)="goToDetails(local)">
+    <ion-card-header>{{ local.name }}</ion-card-header>
+    <ion-avatar item-start> <img src="{{ local.photos[0].photo_reference }}" /> </ion-avatar>
+    <ion-card-content>
+      <div class="card-details">
+        <div>Currently: {{ local.opening_hours.open_now ? 'Open' : 'Closed' }}</div>
+        <div>{{ local.formatted_address }}</div>
+        <div>{{ local.opening_hours.weekday_text[0] }}</div>
+      </div>
+    </ion-card-content>
+  </ion-row>
+
+  <ion-row class="bottom-bar">
+    <ion-col>
+      <button
+        ion-button
+        icon-left
+        clear
+        block
+        small
+        color="primary"
+        class="border-right"
+      >
+        <ion-icon name="map"></ion-icon>
+        <small>DIRECTIONS</small>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button
+        ion-button
+        icon-left
+        small
+        clear
+        block
+        color="primary"
+        class="border-right"
+        (click)="like(local)"
+      >
+        <ion-icon [name]="isFavorite ? 'heart' : 'heart-outline'"></ion-icon>
+        <small>FAVORITE</small>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button
+        ion-button
+        icon-left
+        clear
+        block
+        small
+        color="primary"
+        (click)="review(local)"
+      >
+        <ion-icon name="call"></ion-icon>
+        <small>CALL</small>
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-card>
